@@ -15,7 +15,7 @@
           "gamemode"
           "kvm"
         ];
+        shell = pkgs.nushell;
       };
-      shell = pkgs.nushell;
     };
 }

@@ -15,8 +15,6 @@
         eza
         zoxide
         dua
-        kdePackages.dolphin
-        kdePackages.ark
         bazaar
         yazi
         s-tui
