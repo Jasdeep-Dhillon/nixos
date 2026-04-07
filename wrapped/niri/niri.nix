@@ -1,0 +1,90 @@
+{ inputs, self, ... }:
+{
+  perSystem =
+    {
+      pkgs,
+      lib,
+      config,
+      self',
+      inputs',
+
+      ...
+    }:
+    {
+      packages.niri = inputs.wrapper-modules.wrappers.niri.wrap {
+        inherit pkgs;
+        extraPackages = with pkgs; [
+          nirius
+          xwayland-satellite
+          jq
+          kdePackages.kirigami.unwrapped
+        ];
+        v2-settings = true;
+        imports = with self.nixosModules; [
+          niriInput
+          niriLayout
+          niriOutputs
+          niriRules
+          niriWorkspace
+
+          niriBinds
+          niriApplications
+          niriMedia
+          niriNoctalia
+          niriWindows
+          niriStart
+        ];
+        settings = {
+          prefer-no-csd = { };
+          environment = {
+            "QT_QPA_PLATFORMTHEME" = "qt6ct";
+          };
+          cursor = {
+            hide-when-typing = { };
+          };
+          overview = {
+            zoom = 0.6;
+            backdrop-color = "#181825";
+          };
+          clipboard = {
+            disable-primary = { };
+          };
+          hotkey-overlay = {
+            skip-at-startup = { };
+          };
+          switch-events = {
+            lid-close = {
+              spawn = [
+                "noctalia-shell"
+                "ipc"
+                "call"
+                "toast"
+                "send"
+                ''
+                  { "body": "Laptop Closed", "type": "notice", "icon":"device-laptop-off" }
+                ''
+              ];
+            };
+            lid-open = {
+              spawn = [
+                "noctalia-shell"
+                "ipc"
+                "call"
+                "toast"
+                "send"
+                ''
+                  { "body": "Laptop Opened", "type": "notice", "icon":"device-laptop" }
+                ''
+              ];
+            };
+          };
+          screenshot-path = ''
+            ~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png
+          '';
+          animations = {
+            slowdown = 0.5;
+          };
+        };
+      };
+    };
+}

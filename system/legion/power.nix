@@ -6,7 +6,6 @@
       scheduler = "scx_lavd";
     };
     services.power-profiles-daemon.enable = false;
-
     services.tlp = {
       enable = true;
       pd.enable = true;
