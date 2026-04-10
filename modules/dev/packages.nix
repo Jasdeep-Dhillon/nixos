@@ -24,8 +24,6 @@
         openssl
         gh
         ripgrep
-        carapace
-        starship
         jujutsu
         jjui
         fzf

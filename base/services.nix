@@ -31,5 +31,14 @@
   flake.homeModules.services = {
     services.kdeconnect.enable = true;
     services.hyprpolkitagent.enable = true;
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        splash = false;
+        wallpaper = [
+          { path = ../wallpapers/96740776_p5.jpg; }
+        ];
+      };
+    };
   };
 }

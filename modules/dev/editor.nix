@@ -8,7 +8,22 @@
         vscode-fhs
         jetbrains.datagrip
         # jetbrains.idea
-        helix
       ];
+      programs.helix = {
+        enable = true;
+        settings = {
+          editor = {
+            line-number = "relative";
+            shell = [ "nu" ];
+            cursorline = true;
+            lsp.display-messages = true;
+            cursor-shape = {
+              normal = "bar";
+              insert = "bar";
+              select = "block";
+            };
+          };
+        };
+      };
     };
 }

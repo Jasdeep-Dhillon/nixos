@@ -7,6 +7,7 @@
       theme
       services
       packages
+      programs
 
       shortcut
 

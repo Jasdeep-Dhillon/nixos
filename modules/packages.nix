@@ -6,7 +6,6 @@
       environment.systemPackages = with pkgs; [
         ffmpeg
         yt-dlp
-        bat
         wget
         imagemagick
         uutils-coreutils-noprefix
@@ -34,11 +33,9 @@
         video-trimmer
         bitwarden-desktop
         vesktop
-        mpv
         scrcpy
         qbittorrent
         telegram-desktop
-        kitty
         (discord.override {
           withVencord = true;
           withOpenASAR = true;
