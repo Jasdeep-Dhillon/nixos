@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       users.users.arc = {
-        name = "Arc";
+        name = "arc";
         isNormalUser = true;
         description = "Arc";
         extraGroups = [
