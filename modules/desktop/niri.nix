@@ -1,4 +1,4 @@
-{ self, inputs, ... }:
+{ self, ... }:
 {
   flake.nixosModules.niri =
     { pkgs, ... }:
@@ -6,7 +6,6 @@
       imports = [
         self.nixosModules.settings
       ];
-      nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
       services.gnome.gnome-keyring.enable = true;
       # environment.systemPackages = with pkgs; [
       #   nirius
