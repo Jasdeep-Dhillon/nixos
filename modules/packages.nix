@@ -1,0 +1,74 @@
+{ inputs, ... }:
+{
+  flake.nixosModules.packages =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = with pkgs; [
+        ffmpeg
+        yt-dlp
+        bat
+        wget
+        imagemagick
+        uutils-coreutils-noprefix
+        bottom
+        fastfetch
+        eza
+        zoxide
+        dua
+        bazaar
+        yazi
+        s-tui
+      ];
+    };
+
+  flake.homeModules.packages =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        imv
+        gnome-calculator
+        snapshot
+        zathura
+        papers
+        resources
+        video-trimmer
+        bitwarden-desktop
+        vesktop
+        mpv
+        scrcpy
+        qbittorrent
+        telegram-desktop
+        kitty
+        (discord.override {
+          withVencord = true;
+          withOpenASAR = true;
+        })
+        figma-linux
+        localsend
+        loupe
+        unrar
+        prismlauncher
+        onlyoffice-desktopeditors
+        pear-desktop
+        easyeffects
+        inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+      ];
+      programs.obs-studio = {
+        enable = true;
+        # optional Nvidia hardware acceleration
+        package = (
+          pkgs.obs-studio.override {
+            cudaSupport = true;
+          }
+        );
+        plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+          obs-vaapi # optional AMD hardware acceleration
+          obs-gstreamer
+          obs-vkcapture
+        ];
+      };
+    };
+}

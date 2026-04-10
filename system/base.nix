@@ -14,4 +14,14 @@
       user
     ];
   };
+
+  flake.homeModules.base = {
+    home = {
+      username = "arc";
+      homeDirectory = "/home/arc";
+      stateVersion = "26.05";
+      shell.enableNushellIntegration = true;
+    };
+    programs.home-manager.enable = true;
+  };
 }
