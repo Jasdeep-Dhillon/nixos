@@ -39,6 +39,7 @@
         splash = false;
         wallpaper = [
           {
+            monitor = "";
             path = "/home/arc/Pictures/Wallpapers/96740776_p5.jpg";
           }
         ];

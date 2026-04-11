@@ -22,7 +22,6 @@
 
         # CLI Packages
         openssl
-        gh
         ripgrep
         jujutsu
         jjui

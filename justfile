@@ -14,6 +14,10 @@ update INPUT:
 # Check flake configuration
 check:
     nix flake check
+    
+# Check Home manager configuration
+check-home:
+    home-manager --dry-run switch --flake .
 
 # Check flake with show-trace
 trace-check:
@@ -33,7 +37,7 @@ switch-home:
 
 # Switch home manager generation with show-trace
 trace-switch-home:
-    home-manager switch  --flake .
+    home-manager switch  --flake . --show-trace
 
 # Test legion configuration
 test-legion:

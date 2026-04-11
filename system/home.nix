@@ -37,6 +37,7 @@
         android
         editor
         devApps
+        vcs
         toolchain
         zed
         lsp

@@ -11,7 +11,7 @@
       programs.bat = {
         enable = true;
         settings = {
-          theme = "Catppuccin Mocha";
+          theme = ''"Catppuccin Mocha"'';
         };
       };
       environment.shells = [ pkgs.nushell ];
@@ -20,6 +20,7 @@
   flake.homeModules.programs =
     { pkgs, lib, ... }:
     {
+      xdg.configFile."fastfetch/nekoarc.png".source = ../icons/nekoarc.png;
       programs.fastfetch = {
         enable = true;
         settings = {
@@ -30,14 +31,14 @@
             height = 20;
           };
           display = {
-            seperator = "->";
+            separator = "->";
             color = {
               keys = "blue";
             };
-            key = {
-              width = 6;
-              type = "icon";
-            };
+            # key = {
+            #   width = 6;
+            #   type = "icon";
+            # };
           };
           modules = [
             "title"

@@ -1,10 +1,14 @@
 { inputs, ... }:
 {
   flake.nixosModules.theme =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       imports = [ inputs.stylix.nixosModules.stylix ];
       services.desktopManager.plasma6.enableQt5Integration = true;
+      environment.systemPackages = with pkgs; [
+        breeze-icons
+        morewaita-icon-theme
+      ];
     };
   flake.homeModules.theme =
     {
@@ -20,15 +24,13 @@
         autoEnable = true;
         base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
         polarity = "dark";
-
-        image = ../wallpapers/96740776_p5.jpg;
-        icons.enable = false;
-        # cursor = {
-        #   enable = false;
-        #   name = "Quintom_Ink";
-        #   package = pkgs.quintom-cursor-theme;
-        #   size = 20;
-        # };
+        targets.qt.enable = false;
+        icons = {
+          enable = true;
+          dark = "MoreWaita";
+          light = "MoreWaita";
+          package = pkgs.morewaita-icon-theme;
+        };
         fonts = {
           sizes = {
             applications = 12;
@@ -65,8 +67,6 @@
         gtk.enable = true;
       };
       home.packages = with pkgs; [
-        catppuccin-qt5ct
-        rewaita
         kdePackages.breeze
         kdePackages.breeze-icons
         adwaita-icon-theme
@@ -76,7 +76,7 @@
         gtk4.theme = config.gtk.theme;
         enable = true;
         colorScheme = lib.mkForce "dark";
-        iconTheme = {
+        iconTheme = lib.mkDefault {
           package = pkgs.morewaita-icon-theme;
           name = "MoreWaita";
         };
@@ -94,7 +94,23 @@
       };
       qt = {
         enable = true;
-        platformTheme.name = lib.mkForce "qt6ct";
+        platformTheme = {
+          name = "qtct";
+          package = pkgs.catppuccin-qt5ct;
+        };
+        qt5ctSettings = {
+          Appearance = {
+            style = "Windows";
+            icon_theme = "breeze-dark";
+            standard_dialogs = "xdgdesktopportal";
+            color_scheme_path = "~/.nix-profile/share/qt5ct/colors/catppuccin-mocha-lavender.conf";
+            custom_palette = true;
+          };
+          Fonts = {
+            fixed = ''"Maple Mono NF,12"'';
+            general = ''"Inter,12"'';
+          };
+        };
         qt6ctSettings = {
           Appearance = {
             style = "Breeze";
