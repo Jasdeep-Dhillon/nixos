@@ -6,7 +6,7 @@
       imports = [ inputs.stylix.nixosModules.stylix ];
       services.desktopManager.plasma6.enableQt5Integration = true;
       environment.systemPackages = with pkgs; [
-        breeze-icons
+        kdePackages.breeze-icons
         morewaita-icon-theme
       ];
     };

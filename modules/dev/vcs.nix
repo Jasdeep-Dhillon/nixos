@@ -18,8 +18,9 @@
   flake.homeModules.vcs =
     { pkgs, ... }:
     let
-      name = "Jasdeep";
+      name = "Jasdeep-Dhillon";
       email = "jsdhillon286@gmail.com";
+      pubkey = "~/.ssh/id_ed25519.pub";
     in
     {
       home.packages = [ pkgs.gh ];
@@ -30,6 +31,8 @@
             inherit email;
             inherit name;
           };
+          user.signingKey = pubkey;
+          gpg.format = "ssh";
           lfs.enable = true;
           push = {
             default = "current";
@@ -62,7 +65,7 @@
           safe.directory = "/media/Storage/Projects/*";
           url = {
             "git@github.com:".insteadOf = "gh:";
-            "gh:".insteadOf = "https://github.com/";
+            # "git@github.com:".insteadOf = "https://github.com/";
           };
           filter = {
             "lfs" = {
@@ -83,6 +86,11 @@
           };
           ui = {
             default-command = "log";
+          };
+          signing = {
+            behavior = "own";
+            backend = "ssh";
+            key = pubkey;
           };
         };
       };
