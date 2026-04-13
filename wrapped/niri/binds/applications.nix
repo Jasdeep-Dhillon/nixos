@@ -16,7 +16,7 @@
           props.repeat = false;
           props.hotkey-overlay-title = "File Manager";
           content.spawn = [
-            (lib.getExe pkgs.nautilus)
+            "${pkgs.kdePackages.dolphin}/bin/dolphin"
           ];
         };
         "Mod+B" = _: {

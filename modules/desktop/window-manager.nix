@@ -11,8 +11,8 @@
         runapp
         quickshell
         nautilus
+        file-roller
         kdePackages.dolphin
-        kdePackages.ark
       ];
 
       environment.etc."/xdg/menus/applications.menu".text =

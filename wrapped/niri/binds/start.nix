@@ -29,11 +29,11 @@
             ${lib.getExe pkgs.runapp}
             ${lib.getExe pkgs.vesktop}
           ''
-          ''
-            sleep 5;
-            ${lib.getExe pkgs.runapp}
-            ${lib.getExe pkgs.easyeffects}
-          ''
+          # ''
+          #   sleep 5;
+          #   ${lib.getExe pkgs.runapp}
+          #   ${lib.getExe pkgs.easyeffects}
+          # ''
         ];
       };
     };
