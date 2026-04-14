@@ -17,6 +17,7 @@
     { pkgs, lib, ... }:
     {
       imports = [ inputs.stylix.homeModules.stylix ];
+      home.file."Pictures/Wallpapers".source = ../wallpapers;
       stylix = {
         enable = true;
         autoEnable = true;

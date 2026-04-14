@@ -660,27 +660,27 @@
           };
           wallpaper = {
             automationEnabled = false;
-            directory = "/home/arc/Pictures/Wallpapers";
+            directory = "~/Pictures/Wallpapers";
             enableMultiMonitorDirectories = false;
-            enabled = false;
+            enabled = true;
             favorites = [ ];
             fillColor = "#000000";
             fillMode = "crop";
-            hideWallpaperFilenames = false;
+            hideWallpaperFilenames = true;
             linkLightAndDarkWallpapers = true;
             monitorDirectories = [
               {
-                directory = "/home/arc/Pictures/Wallpapers";
+                directory = "~/Pictures/Wallpapers";
                 name = "DP-5";
                 wallpaper = "";
               }
               {
-                directory = "/home/arc/Pictures/Wallpapers";
+                directory = "~/Pictures/Wallpapers";
                 name = "eDP-1";
                 wallpaper = "";
               }
               {
-                directory = "/home/arc/Pictures/Wallpapers";
+                directory = "~/Pictures/Wallpapers";
                 name = "DP-1";
                 wallpaper = "";
               }

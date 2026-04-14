@@ -29,23 +29,9 @@
   };
 
   flake.homeModules.services =
-    { config, ... }:
+    { ... }:
     {
       services.kdeconnect.enable = true;
       services.polkit-gnome.enable = true;
-
-      home.file."Pictures/Wallpapers".source = ../wallpapers;
-      services.hyprpaper = {
-        enable = true;
-        settings = {
-          splash = false;
-          wallpaper = [
-            {
-              monitor = "";
-              path = "${config.home.homeDirectory}/Pictures/Wallpapers/96740776_p5.jpg";
-            }
-          ];
-        };
-      };
     };
 }
