@@ -3,9 +3,6 @@
   flake.nixosModules.niri =
     { pkgs, lib, ... }:
     {
-      imports = [
-        self.nixosModules.settings
-      ];
       services.gnome.gnome-keyring.enable = false;
       security.pam.services = {
         login.kwallet.enable = lib.mkForce false;

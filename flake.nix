@@ -31,6 +31,7 @@
       url = "github:noctalia-dev/noctalia-plugins";
       flake = false;
     };
+    niri.url = "github:niri-wm/niri";
   };
 
   outputs =

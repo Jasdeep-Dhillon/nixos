@@ -67,7 +67,7 @@
           bar = {
             autoHideDelay = 500;
             autoShowDelay = 150;
-            backgroundOpacity = 0.85;
+            backgroundOpacity = 0.75;
             barType = "simple";
             capsuleColorKey = "none";
             capsuleOpacity = 0.75;
@@ -97,7 +97,7 @@
             showCapsule = true;
             showOnWorkspaceSwitch = true;
             showOutline = false;
-            useSeparateOpacity = true;
+            useSeparateOpacity = false;
             widgetSpacing = 4;
             widgets = {
               center = [
@@ -496,7 +496,7 @@
             disableWallpaper = true;
           };
           notifications = {
-            backgroundOpacity = 0.9;
+            backgroundOpacity = 0.75;
             clearDismissed = true;
             criticalUrgencyDuration = 15;
             density = "default";
@@ -528,7 +528,7 @@
           };
           osd = {
             autoHideMs = 1000;
-            backgroundOpacity = 1;
+            backgroundOpacity = 0.75;
             enabled = true;
             enabledTypes = [
               0
@@ -650,7 +650,7 @@
             fontDefaultScale = 1;
             fontFixed = "Maple Mono NF";
             fontFixedScale = 1;
-            panelBackgroundOpacity = 0.85;
+            panelBackgroundOpacity = 0.75;
             panelsAttachedToBar = true;
             scrollbarAlwaysVisible = true;
             settingsPanelMode = "window";
@@ -692,7 +692,7 @@
             randomIntervalSec = 300;
             setWallpaperOnAllMonitors = true;
             showHiddenFiles = false;
-            skipStartupTransition = false;
+            skipStartupTransition = true;
             solidColor = "#1a1a2e";
             sortOrder = "name";
             transitionDuration = 500;
