@@ -18,7 +18,12 @@
     };
 
   flake.homeModules.programs =
-    { pkgs, lib, config, ... }:
+    {
+      pkgs,
+      lib,
+      config,
+      ...
+    }:
     {
       xdg.configFile."fastfetch/nekoarc.png".source = ../icons/nekoarc.png;
       programs.fastfetch = {
@@ -168,8 +173,8 @@
           i script-binding stats/display-stats-toggle
           RIGHT seek  10                           # seek 5 seconds forward
           LEFT  seek -10
-          b   playlist-prev                        # skip to the previous file
-          n playlist-next                          # skip to the next file
+          v   playlist-prev                        # skip to the previous file
+          b playlist-next                          # skip to the next file
         '';
         scripts = with pkgs.mpvScripts; [
           pkgs.mpvScripts.builtins.autoload
@@ -177,7 +182,10 @@
           modernz
           youtube-chat
           twitch-chat
+          mpris
           eisa01.smart-copy-paste-2
+          eisa01.smartskip
+          webtorrent-mpv-hook
         ];
       };
       programs.starship = {
