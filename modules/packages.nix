@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.nixosModules.packages =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       environment.systemPackages = with pkgs; [
         ffmpeg
@@ -17,13 +17,30 @@
         yazi
         s-tui
       ];
+      programs.obs-studio = {
+        enable = true;
+        # optional Nvidia hardware acceleration
+        package = (
+          pkgs.obs-studio.override {
+            cudaSupport = config.hardware.nvidia.enabled;
+          }
+        );
+        plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+          obs-vaapi # optional AMD hardware acceleration
+          obs-gstreamer
+          obs-vkcapture
+        ];
+      };
     };
 
   flake.homeModules.packages =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        imv
+        qview
         starship-jj
         gnome-calculator
         snapshot
@@ -48,22 +65,5 @@
         easyeffects
         inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
       ];
-      programs.obs-studio = {
-        enable = true;
-        # optional Nvidia hardware acceleration
-        package = (
-          pkgs.obs-studio.override {
-            cudaSupport = true;
-          }
-        );
-        plugins = with pkgs.obs-studio-plugins; [
-          wlrobs
-          obs-backgroundremoval
-          obs-pipewire-audio-capture
-          obs-vaapi # optional AMD hardware acceleration
-          obs-gstreamer
-          obs-vkcapture
-        ];
-      };
     };
 }
