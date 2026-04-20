@@ -3,11 +3,7 @@
   flake.nixosModules.niri =
     { pkgs, lib, ... }:
     {
-      services.gnome.gnome-keyring.enable = false;
-      security.pam.services = {
-        login.kwallet.enable = lib.mkForce false;
-        kde.kwallet.enable = lib.mkForce false;
-      };
+      services.gnome.gnome-keyring.enable = true;
       services.displayManager.defaultSession = "niri";
       programs.niri = {
         enable = true;
