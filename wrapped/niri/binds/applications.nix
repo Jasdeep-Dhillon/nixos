@@ -23,14 +23,16 @@
           props.repeat = false;
           props.hotkey-overlay-title = "Helium";
           content.spawn = [
-            (lib.getExe inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default)
+            # (lib.getExe inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default)
+            "helium"
           ];
         };
         "Mod+Shift+B" = _: {
           props.repeat = false;
           props.hotkey-overlay-title = "Incognito";
           content.spawn = [
-            (lib.getExe inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default)
+            # (lib.getExe inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default)
+            "helium"
             "--incognito"
           ];
         };
