@@ -9,6 +9,7 @@
       locale
       networking
       run0
+      scheduler
       services
       settings
       user

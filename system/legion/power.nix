@@ -1,10 +1,6 @@
 { ... }:
 {
   flake.nixosModules.legionPower = {
-    services.scx = {
-      enable = true;
-      scheduler = "scx_lavd";
-    };
     services.power-profiles-daemon.enable = false;
     services.tlp = {
       enable = true;
