@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixosModules.legionPower = {
+  flake.nixosModules.legion = {
     services.power-profiles-daemon.enable = false;
     services.tlp = {
       enable = true;

@@ -16,14 +16,9 @@
       dev
       packages
       programs
-      # nixld
+      nixld
 
-      # Legion Specific Modules
-      legionHardware
-      legionFileSystem
-      legionPower
-      legionHostName
-
+      legion
       {
         hardware = {
           nvidia = {

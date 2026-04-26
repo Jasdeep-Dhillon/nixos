@@ -1,5 +1,5 @@
 {...}: {
-  flake.nixosModules.legionHostName = {
+  flake.nixosModules.legion = {
     networking.hostName = "legion";
   };
 }

@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.nixosModules.legionHardware =
+  flake.nixosModules.legion =
     {
       config,
       lib,
