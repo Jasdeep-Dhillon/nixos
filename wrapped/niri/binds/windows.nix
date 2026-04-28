@@ -29,6 +29,12 @@
       "Mod+Page_Down" = {
         focus-workspace-down = { };
       };
+      "Mod+Ctrl+J" = {
+        focus-workspace-up = { };
+      };
+      "Mod+Ctrl+K" = {
+        focus-workspace-down = { };
+      };
 
       # Monitor Focus
       "Mod+Left" = {
@@ -87,10 +93,10 @@
       };
 
       # Move Workspace
-      "Mod+Ctrl+K" = {
+      "Mod+Ctrl+Page_Up" = {
         move-workspace-up = { };
       };
-      "Mod+Ctrl+J" = {
+      "Mod+Ctrl+Page_Down" = {
         move-workspace-down = { };
       };
 

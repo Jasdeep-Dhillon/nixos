@@ -46,10 +46,10 @@
           toggle-overview = { };
         };
       };
-      "Mod+Q" = {
+      "Mod+Shift+Q" = {
         close-window = { };
       };
-      "Mod+Shift+Q" = {
+      "Mod+Ctrl+Q" = {
         spawn = [
           "pkill"
           "-9"
