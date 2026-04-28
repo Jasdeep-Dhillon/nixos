@@ -27,9 +27,17 @@ trace-check:
 switch-legion:
     sudo nixos-rebuild switch --flake .#legion
 
+# Switch legion generation
+switch-lain:
+    sudo nixos-rebuild switch --flake .#lain
+
 # Boot to configuration
 boot-legion:
     sudo nixos-rebuild boot --flake .#legion
+
+# Boot to configuration
+boot-lain:
+    sudo nixos-rebuild boot --flake .#lain
 
 # Switch legion generation with show-trace
 trace-switch-legion:
@@ -46,6 +54,10 @@ trace-switch-home:
 # Test legion configuration
 test-legion:
     nixos-rebuild test --flake .#legion
+
+# Test legion configuration
+test-lain:
+    nixos-rebuild test --flake .#lain
 
 # Clear unused packages from nix store
 clean:
