@@ -7,6 +7,7 @@
       home.packages = with pkgs; [
         php
         uv
+        deno
         bun
         nodejs
         rustup
