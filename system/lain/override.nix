@@ -9,6 +9,10 @@
     }:
 
     {
+      environment.systemPackages = [
+        pkgs.helix
+        pkgs.just
+      ];
       hardware = {
         graphics.extraPackages = with pkgs; [ intel-media-driver ];
         nvidia = {

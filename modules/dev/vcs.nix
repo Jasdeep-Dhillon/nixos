@@ -1,8 +1,17 @@
-{ ... }:
+{ self, ... }:
 {
   flake.nixosModules.dev =
+    { ... }:
+    {
+      imports = [ self.nixosModules.vcs ];
+    };
+
+  flake.nixosModules.vcs =
     { pkgs, ... }:
     {
+      environment.systemPackages = with pkgs; [
+        jj
+      ];
       programs.git = {
         enable = true;
         lfs.enable = true;

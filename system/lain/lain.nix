@@ -1,12 +1,9 @@
-{
-  self,
-  inputs,
-  config,
-  ...
-}:
+{ self, inputs, ... }:
 {
   flake.nixosConfigurations.lain = inputs.nixpkgs.lib.nixosSystem {
     modules = with self.nixosModules; [
+      lain
+      
       boot
       lanzaboote
       locale
@@ -16,10 +13,8 @@
       user
       ssh-server
       jellyfin
-      lain
-      # Optional Modules
       nvidia
-
+      vcs
       programs
     ];
   };
